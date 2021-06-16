@@ -1,0 +1,272 @@
+# ! -*- coding:utf-8 -*-
+#:import utils kivy.utils
+
+Wind:
+    FirstWind:
+    SecondWind:
+    ThrWind:
+
+
+<FirstWind>:
+    name: "first"
+    markup: True
+
+    canvas.before:
+        Color:
+            rgb:utils.get_color_from_hex('#3AAFA9')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+
+    GridLayout:
+
+        size: root.width, root.height
+        Label:
+            markup: True
+            text: "[font=times][color=#F8ECF8][i][b][size=150]Catch [sup]you![/sup][/size][/b][/i][/color][/font]"
+            font_size: 40
+            size_hint: .20, .20
+            pos: 290,570
+            color:(1,0,0,1)
+
+        Label:
+            markup: True
+            font_size: 40
+            size_hint: .20, .20
+            pos: 140,700
+            color:(1,0,0,1)
+            Image:
+                source: '4vak.png'
+                size: 300, 500
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+
+
+
+    GridLayout:
+    Button:
+        text: ""
+        font_size: 32
+        size_hint: .20, .20
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "right"
+        background_color:(0,0,0,0)
+        Image:
+            source: 'info3.png'
+            size: 300, 200
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
+    GridLayout:
+    Button:
+        text: ""
+        font_size: 28
+        pos: 480,0
+        size_hint: .20, .20
+        on_release:
+            app.root.current = "thr"
+            root.manager.transition.direction = "left"
+        background_color:(0,0,0,0)
+        Image:
+            source: 'ii.png'
+            size: 300, 200
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
+
+
+<SecondWind>:
+
+    text_widget: what
+    text_widget2: when
+    text_widget3: data
+    text_widget4: pib
+    text_widget5: nomer
+    text_widget6: inter
+    text_label: lbl1
+
+
+    name: "second"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: '123.jpg'
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+    GridLayout:
+
+        Label:
+            markup: True
+            text: "[i][color=#ECB8ED]Тут необхідно заповнити[/color][/i]"
+            font_size: 40
+            pos:300,760
+            color:(1,0,0,1)
+        Label:
+            markup: True
+            text: "[i][color=#ECB8ED]інформацію про знайдену річ![/color][/i]"
+            font_size: 40
+            pos:250,700
+            color:(1,0,0,1)
+
+    GridLayout:
+        column: 6
+        TextInput:
+            id: what
+            size_hint: 0.5, 0.04
+            pos:180,400
+            size: 400,50
+            spacing: 5
+        TextInput:
+            id: when
+            size_hint: 0.6, 0.04
+            pos:180,350
+            size: 400,50
+
+        TextInput:
+            id: data
+            size_hint: 0.6, 0.04
+            pos:180,300
+            size: 400,50
+
+        TextInput:
+            id: pib
+            size_hint: 0.6, 0.04
+            pos:180,250
+            size: 400,50
+
+        TextInput:
+            id: nomer
+            size_hint: 0.6, 0.04
+            pos:180,200
+            size: 400,50
+
+        TextInput:
+            id: inter
+            size_hint: 0.6, 0.04
+            pos:180,150
+            size: 400,50
+    GridLayout:
+
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Що знайшли?[/color][/b][/font][/i]"
+            font_size: 24
+            pos: 40,380
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Де?[/color][/b][/font][/i]"
+            font_size: 24
+            pos: 40,330
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Коли?[/color][/b][/font][/i]"
+            font_size: 24
+            pos: 40,280
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]ПІБ[/color][/b][/font][/i]"
+            font_size: 24
+            pos: 40,230
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Номер телефону[/color][/b][/font][/i]"
+            font_size: 20
+            pos: 40,180
+        Label:
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Короткий опис[/color][/b][/font][/i]"
+            font_size: 20
+            pos: 40,130
+        Label:
+            id: lbl1
+            markup: True
+            text:"[b][i][font=times][color=#ECB8ED]Введіть інформацію в поля[/color][/b][/font][/i]"
+            font_size: 38
+            pos: 240,450
+
+    GridLayout:
+        Button:
+            text: ""
+            font_size: 32
+            pos: 290,40
+            size_hint: .20, .20
+            background_color:(0,0,0,0)
+            on_release:
+                root.change_text()
+            Image:
+                source: 'unna.png'
+                size_hint: .20, .20
+                size: 120, 120
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+    GridLayout:
+    Button:
+        markup: True
+        text: ""
+        font_size: 32
+        pos: 0,750
+        size_hint: .20, .20
+        on_release:
+            app.root.current = "first"
+            root.manager.transition.direction = "left"
+            lbl1.text = "[b][i][font=times][color=#ECB8ED]Введіть інформацію в поля[/color][/b][/font][/i]"
+            what.text = ""
+            when.text = ""
+            data.text = ""
+            pib.text = ""
+            nomer.text = ""
+            inter.text = ""
+
+
+        background_color:(0,0,0,0)
+        Image:
+            source: 'backk.png'
+            size_hint: .20, .20
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
+
+<ThrWind>:
+    name: "thr"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'im.png'
+    GridLayout:
+        column: 1
+        size: root.width, root.height
+        Label:
+            markup: True
+            text: "[size=60][i][b][color=#000A09][sup]СТІЛ[/sup][/color] [color=#0702A4]ЗНАХІДОК[/i][/color][/b][/size]"
+            font_size: 32
+            pos: 270, 800
+    Button:
+        text: ""
+        font_size: 32
+        on_release:
+            app.root.current = "first"
+            root.manager.transition.direction = "right"
+        background_color:(1,0,0,1)
+        pos: 480,5
+        size_hint: .20, .20
+        background_color:(0,0,0,0)
+        Image:
+            source: 'backk.png'
+            size_hint: .20, .20
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+
+
+
+
+
